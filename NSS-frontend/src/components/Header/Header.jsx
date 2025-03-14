@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { assets } from "../../assets/assets";
 import './Header.css';
 // setting an array of images with details for animation
 const headers = [
     {
-      image: "/t1.jpg",
+      image: assets.nsslogo,
       title: "Welcome to NSS RGUKT-Ongole",
       description: "Serving our community with dedication. Join us in making a difference through social service and volunteering.",
       position: { bottom: '20%', left: '5vw' },
@@ -16,7 +17,7 @@ const headers = [
       }
     },
     {
-      image: "/t2.jpg",
+      image: assets.rguktlogo,
       title: "Community Service",
       description: "Engaging in various community service activities to help those in need and create positive change in our society.",
       position: { bottom: '20%', left: '2vw' },
@@ -29,7 +30,7 @@ const headers = [
       }
     },
     {
-      image: "/t3.jpg",
+      image: assets.nss,
       title: "Blood Donation Camps",
       description: "Organizing regular blood donation camps to support healthcare initiatives and save lives in our community.",
       position: { bottom: '12%', left: '7vw' },
@@ -42,7 +43,7 @@ const headers = [
       }
     },
     {
-      image: "/t5.jpg",
+      image: assets.rguktlogo,
       title: "Environmental Awareness",
       description: "Leading initiatives for environmental protection through plantation drives and awareness campaigns.",
       position: { bottom: '20%', left: '14vw' },
@@ -55,7 +56,7 @@ const headers = [
       }
     },
     {
-      image: "/t6.jpg",
+      image: assets.nss,
       title: "Health Camps",
       description: "Conducting health awareness camps and medical checkups for the benefit of our local community.",
       position: { bottom: '18%', left: '6vw' },
@@ -68,7 +69,7 @@ const headers = [
       }
     },
     {
-      image: "/t7.jpg",
+      image: assets.nsslogo,
       title: "Educational Outreach",
       description: "Supporting educational initiatives and conducting workshops for underprivileged students.",
       position: { bottom: '14%', left: '6vw' },
