@@ -6,6 +6,7 @@ import { Routes,Route } from 'react-router-dom'
 import Members from './pages/Members/Members'
 import Gallery from './pages/Gallery/Gallery'
 import Programs from './pages/Programs/Programs'
+import Footer from './components/Footer/Footer'
 const App = () => {
   return (
     <div>
@@ -20,7 +21,7 @@ const App = () => {
 
 
       </Routes>
-      
+      <Footer/>
     </div>
   )
 }

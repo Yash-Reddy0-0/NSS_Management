@@ -112,3 +112,15 @@
         margin-top: 10px;
     }
 }
+
+
+/* Highlight the active page */
+.navbar-menu li.active {
+    color: rgb(203, 48, 48); /* Change text color */
+    font-weight: bold; /* Make it bold */
+}
+
+/* Optional: Add an underline effect for the active page */
+.navbar-menu li.active::after {
+    opacity: 1;  /* Always show the underline */
+}

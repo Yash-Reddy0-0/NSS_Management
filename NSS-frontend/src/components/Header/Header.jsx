@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { assets } from "../../assets/assets";
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
 // setting an array of images with details for animation
 const headers = [
     {
@@ -101,6 +102,7 @@ const headers = [
   ];
 
 const Header = () => {
+    const navigate=useNavigate();
   const [currImageIndex, setCurrImageIndex] = useState(0);  //setting the index for the header images to changes for every predifined intervel
   const [fadeIn, setFadeIn] = useState(true);   //image transition effect
  //transition between images with fadein 
@@ -125,7 +127,7 @@ const Header = () => {
       <div className={`header-contents ${fadeIn ? 'fade-in' : 'fade-out'}`} style={position}>
         <h2 style={{ fontSize: font.titleFontSize, color: font.titleColor, fontWeight: font.titleFontWeight }}>{title}</h2>
         <p style={{ fontSize: font.descriptionFontSize, fontWeight: font.descriptionFontWeight }}>{description}</p>
-        <button><a href='/programs'>View Progams</a></button>
+        <button onClick={()=>navigate('/programs')}>View Progams</button>
       </div>
     </div>
   );
