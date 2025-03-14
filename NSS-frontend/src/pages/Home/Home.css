@@ -1,0 +1,55 @@
+.director-content {
+    display: flex;
+    align-items: center; /* Align image and text in the center */
+    gap: 20px; /* Add spacing between image and text */
+}
+
+.director-content img {
+    width: 120px; /* Set image size */
+    height: 120px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+.director-content p {
+    flex: 1; /* Allow text to take remaining space */
+    font-size: 16px;
+    line-height: 1.5;
+}
+.leaders-container {
+    display: flex;
+    justify-content: space-between;  /* Ensures space between two divs */
+    align-items: center;  /* Aligns items vertically */
+    gap: 20px; /* Adds spacing between them */
+}
+
+.leader-card {
+    flex: 1;  /* Both cards take equal width */
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    max-width: 48%; /* Ensures both cards fit in one row */
+}
+
+.leader-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+@media (max-width: 768px) {
+    .leaders-container {
+        flex-direction: column; /* Stack items vertically */
+        padding: 0 2vw; /* Reduce padding for smaller screens */
+    }
+
+    .leader-card {
+        max-width: 100%; /* Make cards take full width */
+        padding: 10px;
+    }
+}
+

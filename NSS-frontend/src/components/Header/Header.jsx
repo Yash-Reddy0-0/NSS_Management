@@ -4,14 +4,14 @@ import './Header.css';
 // setting an array of images with details for animation
 const headers = [
     {
-      image: assets.nsslogo,
+      image: assets.nss,
       title: "Welcome to NSS RGUKT-Ongole",
       description: "Serving our community with dedication. Join us in making a difference through social service and volunteering.",
       position: { bottom: '20%', left: '5vw' },
       font:{
        titleFontSize:'3vw',
        titleFontWeight:'700',
-       titleColor:'blue',
+       titleColor:'black',
        descriptionFontSize:'1.5vw',
        descriptionFontWeight:'500',
       }
@@ -24,9 +24,13 @@ const headers = [
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'blue',
+        titleColor:'black',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
+      },
+      style:{
+        align:'right'
+
       }
     },
     {
@@ -37,7 +41,7 @@ const headers = [
       font: {
         titleFontSize:'4vw',
         titleFontWeight:'700',
-        titleColor:'blue',
+        titleColor:'black',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
@@ -50,7 +54,7 @@ const headers = [
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'blue',
+        titleColor:'black',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
@@ -63,20 +67,20 @@ const headers = [
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'blue',
+        titleColor:'black',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
     },
     {
-      image: assets.nsslogo,
+      image: assets.rguktlogo,
       title: "Educational Outreach",
       description: "Supporting educational initiatives and conducting workshops for underprivileged students.",
       position: { bottom: '14%', left: '6vw' },
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'blue',
+        titleColor:'black',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
@@ -89,7 +93,7 @@ const headers = [
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'blue',
+        titleColor:'black',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
@@ -121,7 +125,7 @@ const Header = () => {
       <div className={`header-contents ${fadeIn ? 'fade-in' : 'fade-out'}`} style={position}>
         <h2 style={{ fontSize: font.titleFontSize, color: font.titleColor, fontWeight: font.titleFontWeight }}>{title}</h2>
         <p style={{ fontSize: font.descriptionFontSize, fontWeight: font.descriptionFontWeight }}>{description}</p>
-        <button><a href='/programs'>View Menu</a></button>
+        <button><a href='/programs'>View Progams</a></button>
       </div>
     </div>
   );
