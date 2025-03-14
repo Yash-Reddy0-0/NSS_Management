@@ -1,0 +1,114 @@
+/* Navbar.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: #fbfbfb;
+    border-bottom: #030000 3px solid;
+    text-decoration:none;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #030000;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-menu li {
+    position: relative; /* Enables positioning for the pseudo-element */
+    margin: 0 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    color: rgb(17, 15, 15);
+  }
+  
+  /* Create the gradient underline using a pseudo-element */
+  .navbar-menu li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;  /* Adjust this value to control the distance below text */
+    width: 100%;
+    height: 2px;   /* Thickness of the underline */
+    background-image: linear-gradient(to right, blue, red);
+    opacity: 0;    /* Hidden by default */
+    transition: opacity 0.3s ease;
+  }
+  
+  .navbar-menu li:hover {
+    color: #3c2c9b;
+  }
+  
+  .navbar-menu li:hover::after {
+    opacity: 1;  /* Show the underline on hover */
+  }
+  
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.signin {
+    padding: 10px 25px;
+    background-color: #1f47e4;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.signin:hover {
+    background-color: #5566eb;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar-menu li {
+        margin: 10px 0;
+    }
+
+    .navbar-right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+}
