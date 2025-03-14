@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { assets } from '../../assets/assets'
 import './Navbar.css'
 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import Login from '../Login/Login'
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const [showLogin, setShowLogin]=useState(false);
+
+
   return (
-    <div className='navbar'>
+    <>
+    {showLogin && <Login onClose={()=>setShowLogin(false)}/>}
+    <div className={`navbar ${showLogin ? "blurred" : ""}`}>
         <div className="navbar-left">
                 <img src={assets.rguktlogo} alt="rguktlogo" className="navbar-logo"/>
                 <h2 className="logo-text">RGUKT-NSS</h2>
@@ -21,11 +27,12 @@ const Navbar = () => {
           </ul>
 
         <div className="navbar-right">
-          <button className='signin'>Sign in</button></div>  
+          <button className='signin' onClick={()=> setShowLogin(true)}>Sign in</button></div>  
         
       
     </div>
+    </>
   )
 }
 
-export default Navbar
+export default Navbar;

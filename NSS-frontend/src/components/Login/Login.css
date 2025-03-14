@@ -1,0 +1,64 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    width: 400px;
+    background-color: rgb(243, 243, 243);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+}
+
+.modal h2 {
+    margin-bottom: 15px;
+    color: #2e0606;
+}
+
+.modal input {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.modalbuttons {
+    display: flex;
+    gap: 10px; /* Adds space between buttons */
+    justify-content: center; /* Center buttons */
+}
+
+.modalbuttons button {
+    width: 100%;
+    height: 40px;
+    background-color: #010101;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modalbuttons button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+.blurred {
+    filter: blur(5px);
+    pointer-events: none; /* Prevent clicks on blurred elements */
+}
