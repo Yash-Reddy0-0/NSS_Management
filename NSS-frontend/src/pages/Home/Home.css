@@ -53,3 +53,62 @@
     }
 }
 
+/* General Page Styling */
+body {
+    background-color: #F5F5F5; /* Soft background */
+    color: #333333; /* Main text color */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Headings */
+
+
+/* Paragraph Styling */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2C3E50;
+}
+
+/* Special Highlight */
+strong {
+    font-size: 16pt;
+    text-decoration: underline dotted #003366; /* Navy Blue */
+}
+
+/* NSS Motto */
+i {
+    color: #C62828; /* Red Accent */
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    background-color: #FFD700; /* Golden Yellow */
+    color: #333333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #C62828; /* Deep Red for hover */
+    color: white;
+}
+
+/* Leader Cards */
+.leaders-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.leader-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}

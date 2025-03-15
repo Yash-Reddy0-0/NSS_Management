@@ -7,6 +7,7 @@ import Members from './pages/Members/Members'
 import Gallery from './pages/Gallery/Gallery'
 import Programs from './pages/Programs/Programs'
 import Footer from './components/Footer/Footer'
+import Profile from './pages/Profile/Profile'
 const App = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/members" element={<Members/>}/>
         <Route path="/programs" element={<Programs/>}/>
         <Route path="/gallery" element={<Gallery/>}/>
+        <Route path="/profile" element={<Profile/>}/>
 
 
 

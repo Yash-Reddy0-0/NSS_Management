@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../../assets/assets'
 import './Navbar.css'
 
@@ -8,11 +8,45 @@ const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [showLogin, setShowLogin]=useState(false);
+  const [isLoggedin, setIsLoggedin]=useState(false);
+  const [userEmail, setUserEmail]=useState('');
+
+
+  useEffect(()=>{
+    const updateAuthState=()=>{
+    const token=localStorage.getItem('token');
+    const email=localStorage.getItem('userEmail');
+    if(token && email){
+      setIsLoggedin(true);
+      setUserEmail(email);
+    }
+    updateAuthState();
+    window.addEventListener('storage',updateAuthState);
+    return ()=>{
+      window.removeEventListener('storage',updateAuthState);
+    }
+  }},[]);
+
+  const handleLoginSuccess=(email)=>{
+    setIsLoggedin(true);
+    setUserEmail(email);
+    setShowLogin(false);
+  };
+
+  const handleLogout=()=>{
+    setIsLoggedin(false);
+    setUserEmail('');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userEmail');
+    window.dispatchEvent(new Event('storage'));
+
+    navigate('/')
+  }
 
 
   return (
     <>
-    {showLogin && <Login onClose={()=>setShowLogin(false)}/>}
+    {showLogin && <Login onClose={()=>setShowLogin(false)} onLoginSuccess={handleLoginSuccess}/>}
     <div className={`navbar ${showLogin ? "blurred" : ""}`}>
         <div className="navbar-left">
                 <img src={assets.rguktlogo} alt="rguktlogo" className="navbar-logo"/>
@@ -26,9 +60,16 @@ const Navbar = () => {
           <li className={location.pathname==='/aboutus' ?"active":""}onClick={()=>navigate("/aboutus")}>About Us</li>
           </ul>
 
-        <div className="navbar-right">
-          <button className='signin' onClick={()=> setShowLogin(true)}>Sign in</button></div>  
-        
+          <div className="navbar-right">
+          {isLoggedin ? (
+            <div className="profile-section">
+              <button className="profile-btn" onClick={() => navigate('/profile')}>👤 Profile</button>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
+            </div>
+          ) : (
+            <button className="signin" onClick={() => setShowLogin(true)}>Sign In</button>
+          )}
+        </div>
       
     </div>
     </>
