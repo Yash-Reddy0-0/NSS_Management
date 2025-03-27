@@ -39,7 +39,7 @@ const Home = () => {
           />
 
           <LeaderCard 
-            image="nss-head.jpg" 
+            image="nsshead.jpg" 
             name="NSS Head" 
             description="The NSS Head is responsible for organizing and overseeing all National Service Scheme activities at RGUKT." 
             moreInfo=" They ensure students actively engage in social service, community development, and leadership initiatives."

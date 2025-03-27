@@ -18,7 +18,7 @@ const headers = [
       }
     },
     {
-      image: assets.rguktlogo,
+      image: assets.t2,
       title: "Community Service",
       description: "Engaging in various community service activities to help those in need and create positive change in our society.",
       position: { bottom: '20%', left: '2vw' },
@@ -35,7 +35,7 @@ const headers = [
       }
     },
     {
-      image: assets.nss,
+      image: assets.blood,
       title: "Blood Donation Camps",
       description: "Organizing regular blood donation camps to support healthcare initiatives and save lives in our community.",
       position: { bottom: '12%', left: '7vw' },
@@ -48,7 +48,7 @@ const headers = [
       }
     },
     {
-      image: assets.rguktlogo,
+      image: assets.t3,
       title: "Environmental Awareness",
       description: "Leading initiatives for environmental protection through plantation drives and awareness campaigns.",
       position: { bottom: '20%', left: '14vw' },
@@ -68,20 +68,20 @@ const headers = [
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'black',
+        titleColor:'white',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
     },
     {
-      image: assets.rguktlogo,
+      image: assets.t1,
       title: "Educational Outreach",
       description: "Supporting educational initiatives and conducting workshops for underprivileged students.",
       position: { bottom: '14%', left: '6vw' },
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'black',
+        titleColor:'white',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
@@ -94,7 +94,7 @@ const headers = [
       font: {
         titleFontSize:'3vw',
         titleFontWeight:'700',
-        titleColor:'black',
+        titleColor:'white',
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }
