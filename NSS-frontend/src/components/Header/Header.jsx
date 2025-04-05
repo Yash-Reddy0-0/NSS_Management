@@ -56,6 +56,7 @@ const headers = [
         titleFontSize:'3vw',
         titleFontWeight:'700',
         titleColor:'black',
+       
         descriptionFontSize:'1.5vw',
         descriptionFontWeight:'500',
       }

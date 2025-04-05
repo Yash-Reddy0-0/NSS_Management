@@ -1,67 +1,5 @@
 /* Full Page Layout */
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
-  background: #f4f6f9;
-  font-family: Arial, sans-serif;
-}
 
-/* Content Wrapper */
-.content-wrapper {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  min-height: 100vh; /* Adjust for navbar & footer */
-}
-
-/* Sidebar */
-.sidebar {
-  width: 270px;
-  background: #2c3e50;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  height: 100vh;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Sidebar Menu */
-.sidebar-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.sidebar-content button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 14px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  gap: 12px;
-  transition: background-color 0.3s ease;
-  border-radius: 6px;
-  text-align: left;
-}
-
-.sidebar-content button:hover {
-  background-color: #34495e;
-}
-
-/* Space between menu items */
-.sidebar-content button + button {
-  margin-top: 12px;
-}
 
 /* Main Content */
 .main-content {
@@ -126,4 +64,238 @@ input ,textarea ,select {
   .forms .multi-fields {
       flex-direction: row;
   }
+}
+/* Full Page Layout */
+/* Full Page Layout */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background: #f4f6f9;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* 🛑 Prevent horizontal scroll */
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  background: #f4f6f9;
+  overflow-x: hidden; /* 🛑 Prevent horizontal scroll */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 270px;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100%;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Forms */
+input, textarea, select {
+  max-width: 100%; /* 👈 Ensures no element overflows width */
+  box-sizing: border-box;
+}
+
+
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #ecf0f3;
+  border-radius: 0 0 15px 0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Page Title or Section Heading */
+.main-content h1, .main-content h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border-left: 6px solid #2980b9;
+  padding-left: 12px;
+}
+
+/* Content Section Layout */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Form Card Style */
+.form-card {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #c0392b;
+}
+
+/* Label */
+label {
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: 6px;
+}
+
+/* Input Styles */
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  transition: 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #2980b9;
+  outline: none;
+  background: #f9f9ff;
+}
+
+/* Responsive Multi Fields */
+.multi-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.multi-fields > div {
+  flex: 1;
+  min-width: 45%;
+}
+.content p{
+  color: black;
+}
+.sidebar h2{
+  color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .multi-fields {
+    flex-direction: column;
+  }
+}
+.program-table-section {
+  margin-top: 30px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.program-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.program-table thead {
+  background-color: #f0f0f0;
+}
+
+.program-table th,
+.program-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
+}
+
+.program-table tbody {
+  display: block;
+  max-height: 250px; /* limit height */
+  overflow-y: auto;
+}
+
+.program-table thead,
+.program-table tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background-color: #3e8e41;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 6px;
 }

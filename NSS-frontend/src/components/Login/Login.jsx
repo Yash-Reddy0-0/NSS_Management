@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { toast } from "react-toastify";
 
 const Login = ({ onClose, onLoginSuccess }) => {
     const [email, setEmail] = useState('');
@@ -34,7 +35,7 @@ const Login = ({ onClose, onLoginSuccess }) => {
             localStorage.setItem("userEmail", email);
             localStorage.setItem("loginTime", Date.now()); // Store login time
 
-            alert("✅ Login successful!");
+            toast.success("Login successful!");
             onLoginSuccess(email);
             onClose();
         } catch (error) {

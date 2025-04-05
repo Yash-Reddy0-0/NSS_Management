@@ -1,7 +1,10 @@
+// File: routes/programs.js
+
+
 import express from "express";
 import multer from "multer";
 import Program from "../models/Program.js";
-
+import path from "path";
 const router = express.Router();
 
 // Configure Multer for file uploads
@@ -79,6 +82,116 @@ router.get("/gallery", async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 });
+
+
+router.post("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const program = await Program.findByIdAndDelete(id);
+
+    if (!program) {
+      return res.status(404).json({ message: "Program not found" });
+    }
+
+    res.status(200).json({ message: "Program deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting program:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+
+});
+
+
+// PATCH or POST route to edit a program
+// router.post("/edit/:id", upload.array("images", 5), async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const { programName, programDate, programDescription, status, category } = req.body;
+
+//     const updatedFields = {
+//       programName,
+//       programDate,
+//       programDescription,
+//       status,
+//       category
+//     };
+
+//     // If new images were uploaded
+//     if (req.files && req.files.length > 0) {
+//       updatedFields.images = req.files.map((file) => file.path);
+//     }
+
+//     const updatedProgram = await Program.findByIdAndUpdate(id, updatedFields, {
+//       new: true,
+//     });
+
+//     if (!updatedProgram) {
+//       return res.status(404).json({ message: "Program not found" });
+//     }
+
+//     res.status(200).json({ message: "Program updated successfully", updatedProgram });
+//   } catch (error) {
+//     console.error("Edit program error:", error);
+//     res.status(500).json({ message: "Server error", error });
+//   }
+// });
+
+
+import fs from "fs";
+
+router.post("/edit/:id", upload.array("images", 5), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { programName, programDate, programDescription, status, category } = req.body;
+
+    let imagesToDelete = req.body.imagesToDelete || [];
+    if (typeof imagesToDelete === "string") {
+      imagesToDelete = [imagesToDelete];
+    }
+
+    const program = await Program.findById(id);
+    if (!program) {
+      return res.status(404).json({ message: "Program not found" });
+    }
+
+    // Delete selected images from filesystem
+    imagesToDelete.forEach((imgPath) => {
+      const fullPath=path.join(process.cwd(), "imgPath");
+      fs.unlink(imgPath, (err) => {
+        if (err) {
+          console.error(`Failed to delete image: ${imgPath}`, err);
+        } else {
+          console.log(`Deleted image: ${fullPath}`);
+        }
+      });
+    });
+
+    // Filter out deleted images
+    program.images = program.images.filter((img) => !imagesToDelete.includes(img));
+
+    // Add new images if uploaded
+    if (req.files && req.files.length > 0) {
+      const newImagePaths = req.files.map((file) => file.path);
+      program.images.push(...newImagePaths);
+    }
+
+    // Update other fields
+    program.programName = programName;
+    program.programDate = programDate;
+    program.programDescription = programDescription;
+    program.status = status;
+    program.category = category;
+
+    await program.save();
+
+    res.status(200).json({ message: "Program updated successfully", updatedProgram: program });
+
+  } catch (error) {
+    console.error("Edit program error:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+});
+
 
 
 export default router;

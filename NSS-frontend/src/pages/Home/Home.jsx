@@ -43,74 +43,6 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white overflow-x-hidden">
       <Header />
-      
-      {/* Hero Section with Parallax Effect */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="relative overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80')] bg-cover bg-center opacity-10"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 py-20 md:py-32 text-center relative">
-          <motion.h1 
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold text-blue-900 mb-6"
-          >
-            National Service Scheme
-            <motion.span 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="block text-2xl md:text-3xl font-medium text-blue-600 mt-2"
-            >
-              RGUKT Ongole Campus
-            </motion.span>
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"
-          >
-            Fostering the spirit of <span className="font-bold text-red-600 animate-pulse">"Not Me But You"</span> through 
-            community service and student development
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-8 flex flex-wrap justify-center gap-4"
-          >
-            <motion.a 
-              whileHover={{ y: -3, scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://www.rguktong.ac.in/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Visit RGUKT <ArrowRight className="ml-2 w-4 h-4" />
-            </motion.a>
-            
-            <motion.a 
-              whileHover={{ y: -3, scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://www.nss.gov.in" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center px-6 py-3 bg-white hover:bg-gray-50 text-blue-600 border border-blue-200 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Flag className="mr-2 w-4 h-4" /> About NSS
-            </motion.a>
-          </motion.div>
-        </div>
-      </motion.div>
 
       {/* Campus Section */}
       <motion.section 
@@ -145,7 +77,7 @@ const Home = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden md:block md:w-1/2 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center hover:scale-105 transition-transform duration-1000" />
+              <div className="hidden md:block md:w-1/2 bg-[url('https://assets.collegedunia.com/public/college_data/images/appImage/_appppppppppppppp.png')] bg-cover bg-center hover:scale-105 transition-transform duration-1000" />
             </div>
           </div>
         </motion.div>
@@ -271,7 +203,7 @@ const Home = () => {
           <motion.div variants={itemVariants}>
             <LeaderCard 
               image="nsshead.jpg" 
-              name="Prof. Soumya" 
+              name="Prof. Sowmya" 
               role="NSS Program Officer"
               description="Organizes and oversees all National Service Scheme activities at RGUKT." 
               moreInfo="With over 8 years of experience in student development programs, they ensure students actively engage in social service, community development, and leadership initiatives that make a real impact."
@@ -279,10 +211,6 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </motion.section>
-
-     
-
-     
     </div>
   );
 };

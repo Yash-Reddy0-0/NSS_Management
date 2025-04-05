@@ -22,12 +22,13 @@ app.use(express.json());
 app.use(cors());
 
 // Ensure uploads folder is served correctly
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/members", membersRoutes);
 app.use("/api/programs", programsRoutes);
+
 
 // Start Server
 app.listen(port, () => {

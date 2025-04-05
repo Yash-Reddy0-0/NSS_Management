@@ -1,18 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { 
-  Users, 
-  User, 
-  Award, 
-  Mail, 
-  ChevronDown, 
-  ChevronUp,
-  Landmark,
-  Shield,
-  Loader2,
-  Search,
-  Frown
+  Users, User, Award, Mail, ChevronDown, ChevronUp,
+  Shield, Loader2, Search, Frown, Phone, GraduationCap
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Members = () => {
   const [members, setMembers] = useState([]);
@@ -53,8 +45,8 @@ const Members = () => {
     
     return (
       <div 
-        className={`bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all ${
-          isExpanded ? "ring-2 ring-blue-500" : "hover:shadow-md"
+        className={`bg-white rounded-xl shadow-sm border-2 border-blue-100 overflow-hidden transition-all ${
+          isExpanded ? "ring-2 ring-blue-500 shadow-lg" : "hover:shadow-md"
         }`}
       >
         <div className="flex flex-col md:flex-row">
@@ -65,13 +57,14 @@ const Members = () => {
                   src={image} 
                   alt={name} 
                   className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                  loading="lazy"
                 />
               ) : (
                 <div className="w-32 h-32 rounded-full bg-white flex items-center justify-center shadow-lg">
                   <User className="w-12 h-12 text-blue-400" />
                 </div>
               )}
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                 {role}
               </div>
             </div>
@@ -157,7 +150,7 @@ const Members = () => {
             <LeaderCard 
               id="nsshead"
               image="nsshead.jpg"
-              name="Prof. Soumya"
+              name="Prof. Sowmya"
               role="NSS Program Coordinator"
               description="The NSS Coordinator is responsible for organizing and overseeing all National Service Scheme activities at RGUKT."
               moreInfo="With over 8 years of experience in student development programs, they ensure students actively engage in social service, community development, and leadership initiatives that make a real impact."
@@ -165,7 +158,7 @@ const Members = () => {
           </div>
         </section>
 
-        {/* All Members Section */}
+        {/* All Members Section with Enhanced Cards */}
         <section>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center">
@@ -178,7 +171,7 @@ const Members = () => {
           </div>
 
           {filteredMembers.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-sm p-12 text-center border border-gray-200">
+            <div className="bg-white rounded-lg shadow-sm p-12 text-center border-2 border-dashed border-gray-200">
               <Frown className="w-12 h-12 mx-auto text-gray-400 mb-4" />
               <h3 className="text-lg font-medium text-gray-900">No members found</h3>
               <p className="mt-2 text-gray-600">
@@ -188,48 +181,64 @@ const Members = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredMembers.map((member) => (
-                <div 
-                  key={member._id} 
-                  className="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300
-                  border border-gray-200 hover:border-blue-300 hover:shadow-md hover:scale-[1.02]"
+                <motion.div
+                  key={member._id}
+                  whileHover={{ y: -5 }}
+                  className="bg-white rounded-lg border-2 border-gray-200 hover:border-blue-300 
+                  shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
                 >
                   <div className="p-6">
                     <div className="flex flex-col items-center text-center">
+                      {/* Profile Image with Enhanced Border */}
                       <div className="relative mb-4">
-                        <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 border-2 border-white shadow-md">
+                        <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-100 
+                        border-4 border-white shadow-lg ring-2 ring-blue-100 hover:ring-blue-300 transition-all">
                           <img
                             src={
                               member.profilePic
                                 ? `http://localhost:4000/${member.profilePic}`
-                                : "https://via.placeholder.com/100?text=No+Image"
+                                : "https://via.placeholder.com/200?text=No+Image"
                             }
                             alt={member.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
                           />
                         </div>
-                        <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-xs font-bold px-2 py-1 rounded-full ${
+                        {/* Position Badge with Enhanced Border */}
+                        <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 
+                        text-xs font-bold px-2 py-1 rounded-full border ${
                           member.position === 'coordinator' 
-                            ? 'bg-blue-100 text-blue-800 border border-blue-200' 
+                            ? 'bg-blue-100 text-blue-800 border-blue-300' 
                             : member.position === 'volunteer' 
-                              ? 'bg-green-100 text-green-800 border border-green-200' 
-                              : 'bg-gray-100 text-gray-800 border border-gray-200'
-                        }`}>
+                              ? 'bg-green-100 text-green-800 border-green-300' 
+                              : 'bg-gray-100 text-gray-800 border-gray-300'
+                        } hover:shadow-sm transition-shadow`}>
                           {member.position}
                         </div>
                       </div>
                       
-                      <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{member.name}</h3>
-                      <div className="flex items-center text-sm text-gray-500 mt-1 group-hover:text-blue-500 transition-colors">
+                      {/* Member Info with Hover Effects */}
+                      <h3 className="font-semibold text-gray-900 hover:text-blue-600 transition-colors">
+                        {member.name}
+                      </h3>
+                      <div className="flex items-center text-sm text-gray-500 mt-1 hover:text-blue-500 transition-colors">
                         <Mail className="w-4 h-4 mr-1 flex-shrink-0" />
                         <span className="truncate">{member.email}</span>
                       </div>
-                      <div className="mt-2 flex items-center text-xs text-gray-500 group-hover:text-blue-500 transition-colors">
+                      <div className="mt-2 flex items-center text-xs text-gray-500 hover:text-blue-500 transition-colors">
                         <Shield className="w-3 h-3 mr-1" />
                         <span>Unit {member.unit}</span>
                       </div>
+                      {/* Optional: Add phone if available */}
+                      {member.phone && (
+                        <div className="flex items-center text-xs text-gray-500 mt-1 hover:text-blue-500 transition-colors">
+                          <Phone className="w-3 h-3 mr-1" />
+                          <span>{member.phone}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}

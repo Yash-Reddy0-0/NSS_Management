@@ -8,9 +8,12 @@ import Gallery from './pages/Gallery/Gallery'
 import Programs from './pages/Programs/Programs'
 import Footer from './components/Footer/Footer'
 import Profile from './pages/Profile/Profile'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <div>
+       <ToastContainer />
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home/>}/>

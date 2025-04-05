@@ -8,7 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [showLogin, setShowLogin]=useState(false);
-  const [isLoggedin, setIsLoggedin]=useState(false);
+  const [isLoggedin, setIsLoggedin]=useState(localStorage.getItem('token') ? localStorage.getItem("token") : false);
   const [userEmail, setUserEmail]=useState('');
 
 
